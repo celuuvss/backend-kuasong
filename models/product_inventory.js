@@ -1,18 +1,20 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const productInventorySchema = new mongoose.Schema(
   {
     product_id: { type: String, required: true, unique: true },
     product_name: { type: String, required: true },
     category: { type: String, required: true },
     stock_quantity: { type: Number, required: true },
-    selling_price: { type: Number, required: true },
+    min_stock: { type: Number, required: true },
+    max_stock: { type: Number, required: true },
+    last_restocked: { type: Date, default: Date.now },
     created_at: { type: Date, default: Date.now },
   },
   {
     timestamps: true,
-    collection: "products",
+    collection: "product_inventory",
   },
 );
 
-module.exports = productSchema;
+module.exports = productInventorySchema;
