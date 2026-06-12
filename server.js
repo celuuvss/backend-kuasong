@@ -7,6 +7,8 @@ const employeeSchema = require("./models/Employee");
 const productSchema = require("./models/Product");
 const expenseSchema = require("./models/Expense");
 const materialSchema = require("./models/Material");
+const productInventorySchema = require("./models/product_inventory");
+const materialInventorySchema = require("./models/material_inventory");
 
 const app = express();
 
@@ -105,6 +107,8 @@ createCRUDRoutes(employeeSchema, "employees", "employees");
 createCRUDRoutes(productSchema, "products", "products");
 createCRUDRoutes(expenseSchema, "expenses", "expenses");
 createCRUDRoutes(materialSchema, "materials", "materials");
+createCRUDRoutes(productInventorySchema, "product_inventories", "product_inventory");
+createCRUDRoutes(materialInventorySchema, "material_inventories", "material_inventory");
 
 // ====================== CONNECT DB ======================
 connectDB();
